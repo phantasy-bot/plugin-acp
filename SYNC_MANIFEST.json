@@ -22,11 +22,33 @@
   ],
   "visibility": "public",
   "repoUrl": "https://github.com/phantasy-bot/plugin-acp",
-  "sourceOfTruth": "monorepo-wrapper",
-  "syncMode": "dist-package",
-  "phase": "wrapper-package",
+  "sourceOfTruth": "standalone-repo",
+  "syncMode": "source-extract",
+  "phase": "source-extracted",
   "repoExists": true,
   "npmPublished": false,
+  "sourceExtract": {
+    "files": [
+      {
+        "sourcePath": "src/plugins/acp/index.ts",
+        "targetPath": "src/index.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/acp-plugin.ts",
+        "targetPath": "src/acp-plugin.ts"
+      }
+    ],
+    "replacements": [
+      {
+        "from": "import { BasePlugin, type PluginTool } from \"@/plugins/base-plugin\";",
+        "to": "import { BasePlugin, type PluginTool } from \"@phantasy/agent/plugins\";"
+      },
+      {
+        "from": "import { forwardLegacyCorePluginRoute } from \"@/plugin-runtime\";",
+        "to": "import { forwardLegacyCorePluginRoute } from \"@phantasy/agent/plugin-runtime\";"
+      }
+    ]
+  },
   "phantasy": {
     "displayName": "ACP",
     "category": "commerce",
@@ -73,5 +95,5 @@
       }
     }
   },
-  "exportedAt": "2026-03-15T17:58:06.215Z"
+  "exportedAt": "2026-03-15T18:31:23.494Z"
 }

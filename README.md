@@ -1,17 +1,24 @@
-# @phantasy/plugin-acp
+# ACP
 
-Installable ACP commerce plugin surface for Phantasy.
+Autonomous commerce protocol plugin for Phantasy.
 
-## Install
+Package: `@phantasy/plugin-acp`
+Repo: https://github.com/phantasy-bot/plugin-acp
+Phase: `source-extracted`
+
+## Status
+
+This repo is now seeded with real plugin source extracted from the Phantasy monorepo. It is no longer just a blank scaffold, but it may still need seam cleanup before it can become the sole implementation path.
+
+## Development
 
 ```bash
-npm install @phantasy/plugin-acp
+npm install
+npm run typecheck
+npm run build
 ```
 
-## Use
+## Extraction Goal
 
-```ts
-import { ACPPlugin } from "@phantasy/plugin-acp";
-```
+Continue removing deep monorepo-only dependencies so releases can happen directly from this repo.
 
-This package wraps the stable `@phantasy/agent/plugin-acp` subpath so ACP can ship as a first-class plugin package.
