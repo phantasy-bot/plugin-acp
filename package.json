@@ -1,49 +1,44 @@
 {
   "name": "@phantasy/plugin-acp",
   "version": "2.0.0",
-  "private": true,
-  "description": "Autonomous commerce protocol plugin for Phantasy.",
+  "description": "Installable ACP commerce plugin surface for Phantasy",
   "license": "MIT",
-  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
     }
   },
   "files": [
     "dist",
     "README.md",
     "LICENSE",
-    "SECURITY.md",
-    "phantasy.plugin.json"
+    "SECURITY.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": false,
   "keywords": [
+    "ai",
+    "agent",
+    "plugin",
     "acp",
-    "commerce",
-    "jobs",
-    "offerings"
+    "commerce"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/phantasy-bot/plugin-acp"
+    "url": "git+https://github.com/phantasy-bot/agent.git"
   },
-  "homepage": "https://github.com/phantasy-bot/plugin-acp",
-  "scripts": {
-    "build": "tsup",
-    "typecheck": "tsc --noEmit"
+  "bugs": {
+    "url": "https://github.com/phantasy-bot/agent/issues"
   },
-  "peerDependencies": {
+  "homepage": "https://github.com/phantasy-bot/agent#readme",
+  "dependencies": {
     "@phantasy/agent": "^2.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^24.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.9.2"
   },
   "phantasy": {
     "displayName": "ACP",
@@ -59,6 +54,11 @@
     "permissions": [
       "internet"
     ],
+    "pluginDependencies": [
+      {
+        "plugin": "@phantasy/plugin-wallet"
+      }
+    ],
     "platforms": [
       "node"
     ],
@@ -69,6 +69,7 @@
       "section": "business",
       "workspace": "business",
       "kind": "generic",
+      "advancedModule": "agent-commerce",
       "keywords": [
         "acp",
         "commerce",
