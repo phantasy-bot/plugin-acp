@@ -1,27 +1,42 @@
-import { BasePlugin, PluginManifest, PluginTool } from "@phantasy/core";
+import { BasePlugin, type PluginTool } from "@phantasy/agent/plugins";
 
-export class UacpPlugin extends BasePlugin {
-  readonly name = "acp";
-  readonly version = "1.0.0";
+export class AcpPlugin extends BasePlugin {
+  name = "acp";
+  version = "2.0.0";
+  description = "Autonomous commerce protocol plugin for Phantasy.";
 
-  getManifest(): PluginManifest {
-    return {
-      name: this.name,
-      version: this.version,
-      description: "acp plugin for Phantasy",
-      author: "Phantasy",
-      license: "BUSL-1.1",
-      repository: "https://github.com/phantasy-bot/plugin-acp",
-    };
-  }
+  protected displayName = "ACP";
+  protected category = "commerce";
+  protected tags = ["acp","commerce","jobs","offerings"];
+  protected permissions = ["internet"];
+  protected workspace = "business" as const;
+  protected extensionKind = "capability" as const;
+  protected adminSurface =   {
+    "tabId": "acp",
+    "label": "ACP",
+    "section": "business",
+    "workspace": "business",
+    "kind": "generic",
+    "keywords": [
+      "acp",
+      "commerce",
+      "jobs",
+      "offerings"
+    ]
+  } as const;
+  protected configSchema =   {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  };
 
   getTools(): PluginTool[] {
     return [];
   }
-
-  async initialize(): Promise<void> {
-    console.log("[UacpPlugin] Initialized");
-  }
 }
 
-export default UacpPlugin;
+export default AcpPlugin;
