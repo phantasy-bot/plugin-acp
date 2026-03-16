@@ -36,6 +36,88 @@
       {
         "sourcePath": "src/plugins/acp/acp-plugin.ts",
         "targetPath": "src/acp-plugin.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/index.ts",
+        "targetPath": "src/runtime/index.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/shared.ts",
+        "targetPath": "src/runtime/shared.ts",
+        "replacements": [
+          {
+            "from": "import { logger } from \"@/logger\";",
+            "to": "import {\n  createPluginModuleLogger,\n  createRuntimeId,\n  fetchWithTimeout,\n  getSkillLoader,\n  type Skill,\n} from \"@phantasy/agent/plugin-runtime\";\nconst logger = { module: createPluginModuleLogger };"
+          },
+          {
+            "from": "import { fetchWithTimeout } from \"@/utils/fetch-utils\";\n",
+            "to": ""
+          },
+          {
+            "from": "import { createRuntimeId } from \"@/utils/runtime-id\";\n",
+            "to": ""
+          },
+          {
+            "from": "import { getSkillLoader, type Skill } from \"@/skills/skill-loader\";\n",
+            "to": ""
+          }
+        ]
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/types.ts",
+        "targetPath": "src/runtime/types.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/acp-service.ts",
+        "targetPath": "src/runtime/acp-service.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/agdp-tracker.ts",
+        "targetPath": "src/runtime/agdp-tracker.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/clawhub-publisher.ts",
+        "targetPath": "src/runtime/clawhub-publisher.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/erc20-abi.ts",
+        "targetPath": "src/runtime/erc20-abi.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/escrow-service.ts",
+        "targetPath": "src/runtime/escrow-service.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/evaluator.ts",
+        "targetPath": "src/runtime/evaluator.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/marketplace-client.ts",
+        "targetPath": "src/runtime/marketplace-client.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/offering-registry.ts",
+        "targetPath": "src/runtime/offering-registry.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/sdk-client.ts",
+        "targetPath": "src/runtime/sdk-client.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/seller-runtime.ts",
+        "targetPath": "src/runtime/seller-runtime.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/skill-adapter.ts",
+        "targetPath": "src/runtime/skill-adapter.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/token-service.ts",
+        "targetPath": "src/runtime/token-service.ts"
+      },
+      {
+        "sourcePath": "src/plugins/acp/runtime/wallet-service.ts",
+        "targetPath": "src/runtime/wallet-service.ts"
       }
     ],
     "replacements": [
@@ -44,8 +126,8 @@
         "to": "import { BasePlugin, type PluginTool } from \"@phantasy/agent/plugins\";"
       },
       {
-        "from": "import { forwardLegacyCorePluginRoute } from \"@/plugin-runtime\";",
-        "to": "import { forwardLegacyCorePluginRoute } from \"@phantasy/agent/plugin-runtime\";"
+        "from": "\"@/plugin-runtime\"",
+        "to": "\"@phantasy/agent/plugin-runtime\""
       }
     ]
   },
@@ -95,5 +177,5 @@
       }
     }
   },
-  "exportedAt": "2026-03-15T18:31:23.494Z"
+  "exportedAt": "2026-03-16T02:20:40.068Z"
 }
