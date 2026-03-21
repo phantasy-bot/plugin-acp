@@ -1,15 +1,97 @@
 {
   "name": "@phantasy/plugin-acp",
-  "version": "1.0.0",
-  "description": "acp plugin for Phantasy",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "2.0.0",
+  "private": false,
+  "description": "Virtuals Protocol ACP commerce plugin for Phantasy.",
+  "license": "MIT",
   "type": "module",
-  "scripts": { "build": "tsc", "test": "vitest run", "prepublishOnly": "npm run build" },
-  "keywords": ["phantasy", "plugin", "acp"],
-  "author": "Phantasy",
-  "license": "BUSL-1.1",
-  "repository": { "type": "git", "url": "https://github.com/phantasy-bot/plugin-acp" },
-  "peerDependencies": { "@phantasy/core": "^1.0.0" },
-  "devDependencies": { "@types/node": "^20.10.0", "typescript": "^5.3.0", "vitest": "^1.0.0" }
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "phantasy.plugin.json"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "acp",
+    "commerce",
+    "jobs",
+    "offerings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phantasy-bot/plugin-acp"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/phantasy-bot/plugin-acp",
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@phantasy/agent": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.2"
+  },
+  "phantasy": {
+    "displayName": "Virtuals Protocol ACP",
+    "category": "commerce",
+    "tags": [
+      "acp",
+      "commerce",
+      "jobs",
+      "offerings"
+    ],
+    "workspace": "business",
+    "extensionKind": "capability",
+    "permissions": [
+      "internet"
+    ],
+    "pluginDependencies": [
+      {
+        "plugin": "@phantasy/plugin-wallet"
+      }
+    ],
+    "platforms": [
+      "node"
+    ],
+    "productionReady": false,
+    "adminSurface": {
+      "tabId": "acp",
+      "label": "Virtuals Protocol ACP",
+      "section": "business",
+      "workspace": "business",
+      "kind": "generic",
+      "keywords": [
+        "acp",
+        "commerce",
+        "jobs",
+        "offerings"
+      ]
+    },
+    "configSchema": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  }
 }
