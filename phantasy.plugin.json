@@ -1,0 +1,21 @@
+{
+  "name": "@phantasy/plugin-acp",
+  "version": "2.0.1",
+  "description": "Virtuals Protocol ACP commerce plugin for Phantasy.",
+  "displayName": "Virtuals Protocol ACP",
+  "workspace": "business",
+  "extensionKind": "capability",
+  "adminSurface": {
+    "tabId": "acp",
+    "label": "Virtuals Protocol ACP",
+    "section": "business",
+    "workspace": "business",
+    "kind": "generic",
+    "keywords": [
+      "acp",
+      "commerce",
+      "jobs",
+      "offerings"
+    ]
+  }
+}
