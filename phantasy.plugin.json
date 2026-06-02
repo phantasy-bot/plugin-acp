@@ -1,0 +1,133 @@
+{
+  "name": "@phantasy/plugin-acp",
+  "version": "0.1.0-beta",
+  "description": "Virtuals Protocol ACP commerce integration plugin for Phantasy.",
+  "displayName": "Virtuals Protocol ACP",
+  "author": "Phantasy",
+  "homepage": "https://github.com/phantasy-bot/plugin-acp",
+  "repository": "https://github.com/phantasy-bot/plugin-acp",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "workspace": "business",
+  "extensionKind": "integration",
+  "category": "commerce",
+  "tags": [
+    "virtuals",
+    "acp",
+    "commerce",
+    "marketplace"
+  ],
+  "keywords": [
+    "virtuals",
+    "acp",
+    "commerce",
+    "marketplace"
+  ],
+  "permissions": [
+    "internet"
+  ],
+  "dependencies": [
+    {
+      "plugin": "@phantasy/plugin-wallet"
+    }
+  ],
+  "platforms": [
+    "node"
+  ],
+  "productionReady": false,
+  "adminSurface": {
+    "tabId": "acp",
+    "label": "ACP Commerce",
+    "workspace": "business",
+    "kind": "generic",
+    "advancedModule": "agent-commerce",
+    "keywords": [
+      "acp",
+      "commerce",
+      "jobs",
+      "offerings"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  },
+  "data": {
+    "stores": [
+      {
+        "name": "agent_configs.acpConfig",
+        "kind": "config",
+        "description": "ACP profile, offering, and marketplace configuration stored in agent config.",
+        "erasable": false
+      },
+      {
+        "name": "revenue_events",
+        "kind": "postgres",
+        "description": "Commerce revenue events written through financial tracking when enabled.",
+        "erasable": false
+      }
+    ],
+    "dataCategories": [
+      "agent commerce profile",
+      "wallet addresses",
+      "job metadata",
+      "offering metadata",
+      "revenue events"
+    ],
+    "externalServices": [
+      "ACP marketplace",
+      "ClawHub",
+      "Base RPC endpoints"
+    ],
+    "retentionDefault": "persist",
+    "erasable": false
+  },
+  "phantasy": {
+    "extensions": [
+      {
+        "path": "./dist/index.js",
+        "kind": "tool"
+      }
+    ],
+    "pluginDependencies": [
+      {
+        "plugin": "@phantasy/plugin-wallet"
+      }
+    ],
+    "data": {
+      "stores": [
+        {
+          "name": "agent_configs.acpConfig",
+          "kind": "config",
+          "description": "ACP profile, offering, and marketplace configuration stored in agent config.",
+          "erasable": false
+        },
+        {
+          "name": "revenue_events",
+          "kind": "postgres",
+          "description": "Commerce revenue events written through financial tracking when enabled.",
+          "erasable": false
+        }
+      ],
+      "dataCategories": [
+        "agent commerce profile",
+        "wallet addresses",
+        "job metadata",
+        "offering metadata",
+        "revenue events"
+      ],
+      "externalServices": [
+        "ACP marketplace",
+        "ClawHub",
+        "Base RPC endpoints"
+      ],
+      "retentionDefault": "persist",
+      "erasable": false
+    }
+  }
+}
